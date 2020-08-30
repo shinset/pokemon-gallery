@@ -13,10 +13,7 @@ resave -->
     
     
     <style> 
-      .title {
-        height:200px;
-        width: auto;
-      }
+      .title {height:200px;}
       
       .button {width:70px;}
       
@@ -26,11 +23,9 @@ resave -->
         background: #1E9600;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to left, #FF0000, #FFF200, #1E9600);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to left, #FF0000, #FFF200, #1E9600); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
       }
       
-      
-      #pokemon {
+      #pokemon { /*styling the div that contain pokemon by defining white background , size and round border  */
         margin:30px;
         background-color: whitesmoke;
         width: 300px;
@@ -40,6 +35,7 @@ background: linear-gradient(to left, #FF0000, #FFF200, #1E9600); /* W3C, IE 10+/
       }
       
       .center {
+        /* use display flex to center body content */
       display: flex;
         align-items:center;
         justify-content:center;
@@ -56,45 +52,51 @@ background: linear-gradient(to left, #FF0000, #FFF200, #1E9600); /* W3C, IE 10+/
   </head>
   <body class="center">
 <img class="title" src="https://imgur.com/7uvD3gE.png">
+    
     <div id ="pokemon">
-
+<!-- create a div that will contain the pokemon picture -->
     </div>
-    <div>
+    
+    <div> <!--this div is created especially to contain buttons to be displayed side by side because the diplay flex of the center class force display as column that may break the button display -->
       <img class="button" id="prev" src="https://imgur.com/V1BqV4S.png">
-<img class="button" id="next" src="https://imgur.com/13HDNXU.png">
+      <img class="button" id="next" src="https://imgur.com/13HDNXU.png">
     </div>
 
 <script>
   
-  let count = 1
-  function render(){
+  let count = 1 /*create a variable and set to 1 by default that will be reused later to change the image url dynamicaly */
+  
+  function render(){ /* create a function that will insert and render pokemon image using an url inside the pokemon div */
  let container =  document.getElementById('pokemon') ;
- container.innerHTML = `<img class="poke" src="https://tinyurl.com/ironhack-pokemons/${count}.svg">`    ;
-  }
- 
+ container.innerHTML = `<img class="poke" src="https://tinyurl.com/ironhack-pokemons/${count}.svg">`; /* using Template literals (Template strings) method to dynamically change the image url using the`${count}` variable PS : note the (`backtick`) syntax */
+  };
+
+  /* Create variable to store html button element */
   let prev = document.getElementById('prev');
   let next = document.getElementById('next');
 
- render();
+ render();  /* invoke the function to display the first pokemon*/
   
+  /* setting the .onclick eventlistener method to previous and next button variable will modify the count variable when button is clicked
+  by updating the count variable it will dynamically change the pokemon image url.
+  
+  Note that an IF condition is set to avoid negative numbers and overs 650 which is the max pokemon number
+  */
   prev.onclick = function() {
     
     if(count >1){
       count-=1 ;
     console.log(count);
-    render()
+    render();
     }
-    
   }
-  
+  ;
     next.onclick = function() {
       if(count < 650) {     
     count += 1 ;
     console.log(count);
-    render()
+    render();
       }
-      
-  
   }
   
     </script>
