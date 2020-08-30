@@ -1,0 +1,99 @@
+<!doctype html>
+<!--material for this page
+https://www.crowdcast.io/e/web-development-in-a/1
+https://gist.github.com/ManishPoduval/7868e4ffd6a4f89a4d989f94bf830d32
+-->
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Pokemon</title>
+    <link rel="stylesheet" href="style.css">
+    
+    
+    <style> 
+      .title {
+        height:200px;
+        width: auto;
+      }
+      
+      .button {width:70px;}
+      
+      body {
+       padding:30px;
+        /* background generated with https://uigradients.com/#Rastafari   */
+        background: #1E9600;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #FF0000, #FFF200, #1E9600);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #FF0000, #FFF200, #1E9600); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      }
+      
+      
+      #pokemon {
+        margin:30px;
+        background-color: whitesmoke;
+        width: 300px;
+        height: 300px;
+        border-radius: 15px;
+        
+      }
+      
+      .center {
+      display: flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+      }
+      .poke {
+        width:280px;
+        height:280px
+      }
+      
+    </style>
+    
+    
+  </head>
+  <body class="center">
+<img class="title" src="https://imgur.com/7uvD3gE.png">
+    <div id ="pokemon">
+
+    </div>
+    <div>
+      <img class="button" id="prev" src="https://imgur.com/V1BqV4S.png">
+<img class="button" id="next" src="https://imgur.com/13HDNXU.png">
+    </div>
+
+<script>
+  
+  let count = 12
+  function render(){
+ let container =  document.getElementById('pokemon') ;
+ container.innerHTML = `<img class="poke" src="https://tinyurl.com/ironhack-pokemons/${count}.svg">`    ;
+  }
+  let prev = document.getElementById('prev');
+  let next = document.getElementById('next');
+
+  prev.onclick = function() {
+    
+    if(count >1){
+      count-=1 ;
+    console.log(count);
+    render()
+    }
+    
+  }
+  
+    next.onclick = function() {
+      if(count < 650) {     
+    count += 1 ;
+    console.log(count);
+    render()
+      }
+      
+  
+  }
+  
+    </script>
+  </body>
+</html>
