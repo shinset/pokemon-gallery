@@ -2,7 +2,7 @@
 <!--material for this page
 https://www.crowdcast.io/e/web-development-in-a/1
 https://gist.github.com/ManishPoduval/7868e4ffd6a4f89a4d989f94bf830d32
--->
+resave -->
 
 
 <html lang="en">
@@ -66,14 +66,17 @@ background: linear-gradient(to left, #FF0000, #FFF200, #1E9600); /* W3C, IE 10+/
 
 <script>
   
-  let count = 12
+  let count = 1
   function render(){
  let container =  document.getElementById('pokemon') ;
  container.innerHTML = `<img class="poke" src="https://tinyurl.com/ironhack-pokemons/${count}.svg">`    ;
   }
+ 
   let prev = document.getElementById('prev');
   let next = document.getElementById('next');
 
+ render();
+  
   prev.onclick = function() {
     
     if(count >1){
